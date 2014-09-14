@@ -1,8 +1,24 @@
-﻿@{
+﻿@using System.Web.Http
+@using GP.Web
+@{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
+<div class="container">
+    <div>
+        method:
+        <select>
+            <option value="GET">GET</option>
+            <option value="POST">POST</option>
+            <option value="PUT">PUT</option>
+            <option value="DELETE">DELETE</option>
+        </select>
+        url:
+        <input type="text"/>
+    </div>
+
+</div>
 <div id="testClientDialog" title="description.HttpMethod description.RelativePath">
     <input class="httpMethod" spellcheck="false" data-bind="value: HttpMethod" />
     <input class="uriPath" spellcheck="false" data-bind="value: UriPath" />
@@ -11,7 +27,7 @@
         <div class="panel">
             <div data-bind="foreach: UriParameters">
                 <div>
-                    <input readonly="true" spellcheck="false" tabindex="100" class="uriParameterLabel" data-bind="value: '{' + name + '}'" />
+                    <input readonly="readonly" spellcheck="false" tabindex="100" class="uriParameterLabel" data-bind="value: '{' + name + '}'" />
                     <span>= </span>
                     <input spellcheck="false" data-bind="value: value, valueUpdate: 'afterkeydown', enable: enabled" />
                     <input type="checkbox" data-bind="checked: enabled" />
